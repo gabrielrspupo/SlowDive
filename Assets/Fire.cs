@@ -16,7 +16,7 @@ public class Fire : MonoBehaviour {
     Transform firePoint;
     private float distance = 100;
 
-    void Awake()
+    void Start()
     {
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
@@ -24,10 +24,7 @@ public class Fire : MonoBehaviour {
             Debug.LogError("FirePoint Object missing!");
         }
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
+
 	
 	// Update is called once per frame
 	void Update () {
