@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour {
     public float speed = 2.0f;
     public float _gravity = 2f;
+    public bool isGrounded = false;
+    public int life = 100;
+
     private Rigidbody2D rb;
     private TimeManager localTime;
     private Gravity gravity;
-    public bool isGrounded = false;
 
     void Start()
     {
@@ -42,6 +44,11 @@ public class EnemyControl : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    void takeDamage(int amount) {
+        life -= amount;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ChangeDirTrigger"))

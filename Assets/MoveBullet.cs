@@ -44,6 +44,7 @@ public class MoveBullet : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
             Destroy(gameObject);
+            
     }
 
     void OnBecameInvisible()
