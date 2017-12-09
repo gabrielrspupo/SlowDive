@@ -59,7 +59,7 @@ public class MovingPlatform : MonoBehaviour {
         if (collision.CompareTag("ChangeDirTrigger"))
         {
             speed *= -1;
-            Flip();
+            //Flip();
         }
 
     }
