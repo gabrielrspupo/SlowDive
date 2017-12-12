@@ -33,7 +33,7 @@ namespace UnitySampleAssets._2D
             // Setting up references.
             groundCheck = transform.Find("GroundCheck");
             ceilingCheck = transform.Find("CeilingCheck");
-            anim = GetComponent<Animator>();
+            anim = GetComponentInChildren<Animator>();
 
             playerGraphics = transform.Find("Graphics");
 			rb = GetComponent<Rigidbody2D>();

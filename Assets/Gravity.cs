@@ -6,18 +6,25 @@ public class Gravity : MonoBehaviour {
 	public float _gravity = 2f;
 	private TimeManager localTime;
 	private Rigidbody2D rb;
-	[SerializeField] private bool isGrounded = false;
+	public bool isGrounded = false;
 
 
 	// Use this for initialization
 	void Start () {
 		localTime = GameObject.Find ("TimeManager").GetComponent<TimeManager> ();
-		rb = GetComponent<Rigidbody2D> ();
+        
+        rb = GetComponent<Rigidbody2D> ();
 	}
 	void FixedUpdate()
-	{	
-		Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - _gravity * localTime.localDeltaTime());
-		rb.MovePosition(newPosition);
-
+	{
+        if (!isGrounded) {
+            Vector2 newPosition = new Vector2(transform.position.x, transform.position.y - _gravity * localTime.localDeltaTime());
+            rb.MovePosition(newPosition);
+        }		
 	}
+    public bool Grounded() {
+        return isGrounded;
+    }
+
+    
 }
