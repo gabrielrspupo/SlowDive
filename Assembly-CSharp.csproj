@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A4D5A16D-DC89-60F2-EB74-D013B34460D1}</ProjectGuid>
+    <ProjectGuid>{F7EB25CC-AB23-1D39-B138-D224C4281FC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,6 +58,8 @@
      <Compile Include="Assets\FirePattern.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Gravity.cs" />
+     <Compile Include="Assets\HUD\Scripts\EnemyHealth.cs" />
+     <Compile Include="Assets\Inimigos\Scripts\BulletControl.cs" />
      <Compile Include="Assets\MoveBullet.cs" />
      <Compile Include="Assets\MoveTimedPlayer.cs" />
      <Compile Include="Assets\MovingPlatform.cs" />
@@ -73,6 +75,7 @@
      <Compile Include="Assets\TimeManager.cs" />
      <Compile Include="Assets\TimedShoot.cs" />
      <Compile Include="Assets\TurretControl.cs" />
+     <None Include="Assets\HUD\Bars\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\NoiseEffectShaderRGB.shader" />
@@ -144,6 +147,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\EdgeDetectX.shader" />
      <None Include="Assets\Standard Assets\Effects\LightShafts\Shaders\ColorFilter.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\ScreenSpaceAmbientObscurance.shader" />
+     <None Include="Assets\HUD\vec\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendForBloom.shader" />
@@ -171,7 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{0445DACF-2572-A34F-13FA-9621B6CD9AAD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C0EA1CCF-6224-00E9-1092-23205DBDB5AF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

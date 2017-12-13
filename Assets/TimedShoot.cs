@@ -30,6 +30,8 @@ public class TimedShoot : MonoBehaviour {
     }
     void Fire() {
         GameObject newBullet = Instantiate(bullet, PointToShoot.position, Quaternion.identity);
+        newBullet.name = "Enemy Bullet";
+        newBullet.tag = "Enemy";
         newBullet.GetComponent<MoveBullet>().setMovement(PointToShoot.position, transform.position);
         newBullet.GetComponent<MoveBullet>().setSpeed(10);
     }

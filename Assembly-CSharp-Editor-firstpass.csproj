@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4213353A-A932-95A9-2205-6EFF84769566}</ProjectGuid>
+    <ProjectGuid>{5C7FB745-82E9-62FF-81AB-958331C32805}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -67,6 +67,7 @@
      <Compile Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Editor\Water (Pro Only)\WaterEditorUtility.cs" />
      <Compile Include="Assets\Standard Assets\Effects\LightShafts\Editor\LightShaftsEditor.cs" />
      <Compile Include="Assets\Standard Assets\Vehicles\Car\Scripts\Editor\WheelEditor.cs" />
+     <None Include="Assets\HUD\Bars\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\NoiseEffectShaderRGB.shader" />
@@ -138,6 +139,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\EdgeDetectX.shader" />
      <None Include="Assets\Standard Assets\Effects\LightShafts\Shaders\ColorFilter.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\ScreenSpaceAmbientObscurance.shader" />
+     <None Include="Assets\HUD\vec\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendForBloom.shader" />
@@ -204,7 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{0445DACF-2572-A34F-13FA-9621B6CD9AAD}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{C0EA1CCF-6224-00E9-1092-23205DBDB5AF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
