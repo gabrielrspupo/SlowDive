@@ -87,6 +87,7 @@
     <Compile Include="Assets\ArmMovement.cs" />
     <Compile Include="Assets\BossControl.cs" />
     <Compile Include="Assets\BoxDropper.cs" />
+    <Compile Include="Assets\Checkpoint.cs" />
     <Compile Include="Assets\CurvedMovement.cs" />
     <Compile Include="Assets\EnemyAnimControl.cs" />
     <Compile Include="Assets\EnemyControl.cs" />

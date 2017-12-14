@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager gm;
+    public Transform playerPrefab;
+    public Transform spawnPoint;
+    public int timeToRespawn = 0;
 
     void Start()
     {
@@ -11,10 +14,6 @@ public class GameManager : MonoBehaviour {
             //gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
             gm = GameObject.Find("_GameManager").GetComponent<GameManager>();
     }
-
-    public Transform playerPrefab;
-    public Transform spawnPoint;
-    public int timeToRespawn = 0;
 
     public static void KillPlayer(Player player)
     {
@@ -26,6 +25,9 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeToRespawn);
         Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
+    }
+    public void setSpawnPoint(Transform point) {
+        spawnPoint = point;
     }
     /*public void KillPlayer(GameObject player)
     {
