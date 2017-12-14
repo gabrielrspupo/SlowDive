@@ -39,10 +39,12 @@ public class Player : MonoBehaviour {
     private float health;
     private Image fillerHealth;
     private GameObject healthBar;    
-
+    
     private float energy;
     private Image fillerEnergy;
-    private GameObject energyBar;  
+    private GameObject energyBar;
+    public float slowdownLimitSeconds = 10;
+
     private bool sofrerDano = false; 
     private int tipoDano = 0;
     private bool morreu = false;
@@ -68,7 +70,8 @@ public class Player : MonoBehaviour {
         fillerHealth.fillAmount = health / maxHealth;
 
         fillerEnergy = transform.Find("Energy Canvas").GetChild(0).GetChild(0).GetComponent<Image>();
-        energyBar = transform.Find("Energy Canvas").gameObject;        
+        energyBar = transform.Find("Energy Canvas").gameObject;
+        maxEnergy = slowdownLimitSeconds;
         energy = maxEnergy;
         fillerEnergy.fillAmount = energy / maxEnergy;
         animator.SetBool("morreu", false);
@@ -301,8 +304,12 @@ public class Player : MonoBehaviour {
     }
 
     private void consumeEnergy() {
-        if (Input.GetKey(KeyCode.X) && energy > 0)//definir (botao de parar o tempo)
-            energy -= energyConsumeRate;
+        if (Input.GetKey(KeyCode.Z) && energy > 0)//definir (botao de parar o tempo)
+            energy -= Time.deltaTime;
     }
 
+    public bool hasEnergy() {
+        return energy > 0 ? true : false;
+    }
+    
 }

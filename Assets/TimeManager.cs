@@ -5,10 +5,9 @@ public class TimeManager : MonoBehaviour {
 	public float slowdownFactor = 0.1f;
 	public float slowdownLength = 2f;
 	private TimeBehaviour _time;
-    public ProgressBar progressBar;
-
-
-    public float slowdownLimitSeconds = 10; 
+    public Player player;
+    //public ProgressBar progressBar;
+    //public float slowdownLimitSeconds = 10; 
 
 	void Awake(){
 		_time = GetComponent<TimeBehaviour> ();
@@ -23,10 +22,10 @@ public class TimeManager : MonoBehaviour {
         
             if (Input.GetKey(KeyCode.Z))
             {
-                if (!progressBar.Empty())
+                if (player.hasEnergy())
                     _time.localTimeScale = slowdownFactor;
             }
-            if (Input.GetKeyUp(KeyCode.Z) || progressBar.Empty())
+            if (Input.GetKeyUp(KeyCode.Z) || !player.hasEnergy())
             {
                 _time.localTimeScale = 1f;
             }
