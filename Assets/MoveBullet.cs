@@ -28,7 +28,12 @@ public class MoveBullet : MonoBehaviour {
     void FixedUpdate() {
         //Vector2 newPosition = transform.position + moveDirection * speed * localTime.localDeltaTime();
             //new Vector2(moveDirection.position.x + speed * localTime.localDeltaTime(), moveDirection.position.y + speed * localTime.localDeltaTime());
-        rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + moveDirection * speed * localTime.localDeltaTime());
+		if (Player.paused)
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		else {
+			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+			rb.MovePosition (new Vector2 (transform.position.x, transform.position.y) + moveDirection * speed * localTime.localDeltaTime ());
+		}
 
         //float step = speed * Time.deltaTime;
         //transform.position = Vector2.MoveTowards(initialPos, finalPos, step);

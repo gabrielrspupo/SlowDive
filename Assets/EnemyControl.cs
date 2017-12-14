@@ -45,7 +45,13 @@ public class EnemyControl : MonoBehaviour {
     void FixedUpdate()
     {
         //if(gravity.isGrounded)
+
+		if (Player.paused) {
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		} else {
+			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             movePlatform();
+		}
 
         fillerHealth.fillAmount = health / maxHealth;
     }
