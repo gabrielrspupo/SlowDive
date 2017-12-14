@@ -56,7 +56,8 @@ public class Player : MonoBehaviour {
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    private bool touchingWall = false;
+    private bool wallToLeft = false;
+    private bool wallToRight = false;
 
     void Start(){
         rb2D = GetComponent<Rigidbody2D>();
@@ -80,6 +81,8 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        horizontal = Input.GetAxis("Horizontal");
+        Debug.Log("WallToRight: " + wallToRight + " WallToLeft: " + wallToLeft);
         if (transform.position.y <= fallBoundary)
         {
             health = 0;
@@ -117,7 +120,7 @@ public class Player : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        horizontal = Input.GetAxis("Horizontal");
+        
         fillerHealth.fillAmount = health / maxHealth;
         fillerEnergy.fillAmount = energy / maxEnergy;
         if(!morreu){
@@ -147,10 +150,27 @@ public class Player : MonoBehaviour {
         }
     }
     private void Movimentar(float h){
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsTag("Atirar")){
-            if(!touchingWall)
-                rb2D.velocity = new Vector2(h*velocidade, rb2D.velocity.y);
-        }
+        if ((wallToLeft && h < 0) || (wallToRight && h > 0))
+            return;
+            //h = 0;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Atirar")){
+        //if (estaNoChao)
+            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
+                /*else {
+                    if(h > 0) { 
+                        if (!wallToLeft)
+                            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
+                    }
+                    else if(h < 0) { 
+                        if (!wallToLeft)
+                            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
+                    }
+                    //if ((!wallToLeft && h < 0) || (!wallToRight && h > 0))
+                    //   rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
+                }
+                */
+
+            }
         animator.SetFloat("velocidade", Mathf.Abs(h));
         if(rb2D.velocity.y == 0){
             //rb2D.gravityScale = 1.0f;
@@ -210,18 +230,12 @@ public class Player : MonoBehaviour {
             }
         }
 
-        Collider2D collider = collision.collider;
-        if (collider.tag == "Ground")
-        {
-            if(!estaNoChao)
-                touchingWall = true;
-        }
-
-        
     }
 
-	void OnCollisionExit2D (Collision2D collision) {
-        touchingWall = false;
+    
+        void OnCollisionExit2D (Collision2D collision) {
+        wallToLeft = false;
+        wallToRight = false;
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.transform.name.Contains("Bullet") && collision.transform.tag.Contains("Enemy"))
@@ -234,13 +248,27 @@ public class Player : MonoBehaviour {
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision) {            
-        if (collision.transform.tag.Contains("Enemy"))//para mais inimigos, adicionar condicoes para diferencia-los
-            if (health > 0){
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (collision.transform.tag.Contains("Enemy")){//para mais inimigos, adicionar condicoes para diferencia-los
+            if (health > 0) {
                 sofrerDano = true;
                 tipoDano = 1;
-                Debug.Log ("fooooooi2");
+                Debug.Log("fooooooi2");
             }
+        }
+        Collider2D collider = collision.collider;
+        if (collider.tag == "Ground")
+        {
+            if (!estaNoChao)
+            {
+                Vector3 contactPoint = collision.contacts[0].point;
+                Vector3 center = collider.bounds.center;
+
+                wallToLeft = contactPoint.x > center.x;
+                wallToRight = contactPoint.x < center.x;
+            }
+
+        }
     }
 
     private void EstaNoChao(){
@@ -266,13 +294,15 @@ public class Player : MonoBehaviour {
     void Pular(){
         if (estaNoChao)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            //GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal, jumpVelocity);
             doubleJump = true;
             estaNoChao = false;
         }
         else if (doubleJump)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.up * doubleJumpVelocity;
+            //GetComponent<Rigidbody2D>().velocity = Vector2.up * doubleJumpVelocity;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal, jumpVelocity);
             doubleJump = false;
         }
 
