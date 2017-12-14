@@ -179,6 +179,8 @@ public class Player : MonoBehaviour {
     }
     private void AcaoAtirar(){
         GameObject tmpProjetil = (GameObject) (Instantiate(projetil, posicaoProjetil.transform.position, Quaternion.identity));
+        tmpProjetil.name = "Player Bullet";
+        tmpProjetil.tag = "Player";
         if(eLadoDireito){
             tmpProjetil.GetComponent<Bala>().Inicializar(Vector2.right);
         }
