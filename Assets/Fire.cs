@@ -5,15 +5,15 @@ using UnityEngine;
 public class Fire : MonoBehaviour {
 
     public GameObject bullet;
-    public float force = 25;    
+    public float force = 25;
+    //public GameObject[] bullets;
+    private GameObject uniqueBullet = null;
+
     public float fireRate = 0;
     public float damage = 10;
     public LayerMask whatToHit;
-    public int bulletSpeed = 0;
+    private float TimeToFire = 0;
     Transform firePoint;
-
-    private GameObject uniqueBullet = null;
-    private float TimeToFire = 0;    
     private float distance = 100;
 
     void Start()
@@ -53,14 +53,11 @@ public class Fire : MonoBehaviour {
         if (hit.collider != null) { 
             Debug.DrawLine(firePointPosition, hit.point, Color.red);
             //uniqueBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-            //Debug.Log("We hit " + hit.collider.name + " and did " + damage + " damage");
-
-            GameObject newBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
-            newBullet.GetComponent<MoveBullet>().setMovement(mousePosition, firePointPosition);
-            newBullet.GetComponent<MoveBullet>().setSpeed(bulletSpeed);
-
+            Debug.Log("We hit " + hit.collider.name + " and did " + damage + " damage");
         }
 
     }
-
+    void moveBullet() {
+        
+    }
 }
