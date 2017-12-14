@@ -6,6 +6,7 @@ public class MovingPlatform : MonoBehaviour {
 	public Transform []positions;
 	public Transform currentPos;
 	public float speed = 2.0f;
+    public float speedy = 0;
 
 	private Transform platform;
 	private Rigidbody2D rb;
@@ -27,7 +28,7 @@ public class MovingPlatform : MonoBehaviour {
         movePlatform();
     }
     void movePlatform() {        
-		Vector2 newPosition = new Vector2(transform.position.x + speed * localTime.localDeltaTime(), transform.position.y);
+		Vector2 newPosition = new Vector2(transform.position.x + speed * localTime.localDeltaTime(), transform.position.y + speedy * localTime.localDeltaTime());
 		rb.MovePosition(newPosition);	
         /*
         if (pointSelected < positions.Length - 1)
@@ -59,6 +60,7 @@ public class MovingPlatform : MonoBehaviour {
         if (collision.CompareTag("ChangeDirTrigger"))
         {
             speed *= -1;
+            speedy *= -1;
             //Flip();
         }
 

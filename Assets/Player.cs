@@ -42,7 +42,7 @@ public class Player : MonoBehaviour {
     private Image fillerHealth;
     private GameObject healthBar;    
 
-    private float energy;
+    public float energy;
     private Image fillerEnergy;
     private GameObject energyBar;  
     private bool sofrerDano = false; 
@@ -121,6 +121,7 @@ public class Player : MonoBehaviour {
     }
     private void LevouDano(){
         if(sofrerDano){
+            //rb2D.AddForce(new Vector2(-jumpImpulse, 0));
             animator.SetBool("dano", true);
             animator.SetLayerWeight(2,1);
             if(tipoDano==1)
@@ -141,7 +142,8 @@ public class Player : MonoBehaviour {
         }
         animator.SetFloat("velocidade", Mathf.Abs(h));
         if(rb2D.velocity.y == 0){
-            //rb2D.gravityScale = 1.0f;
+            rb2D.velocity = new Vector2(h*velocidade, rb2D.velocity.y);
+            Debug.Log ("bugou");
         }
     }
     private void MudarDirecao(float horizontal){
@@ -263,7 +265,7 @@ public class Player : MonoBehaviour {
     }
 
     private void consumeEnergy() {
-        if (Input.GetKey(KeyCode.X) && energy > 0)//definir (botao de parar o tempo)
+        if (Input.GetKey(KeyCode.Z) && energy > 0)//definir (botao de parar o tempo)
             energy -= energyConsumeRate;
     }
 

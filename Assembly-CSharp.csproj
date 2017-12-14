@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F7EB25CC-AB23-1D39-B138-D224C4281FC5}</ProjectGuid>
+    <ProjectGuid>{02834BC2-0E2E-195E-989E-9D1C1FD60E75}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -75,6 +75,8 @@
      <Compile Include="Assets\TimeManager.cs" />
      <Compile Include="Assets\TimedShoot.cs" />
      <Compile Include="Assets\TurretControl.cs" />
+     <Compile Include="Assets\caixa.cs" />
+     <Compile Include="Assets\invisivel.cs" />
      <None Include="Assets\HUD\Bars\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\MobileBlur.shader" />
@@ -175,7 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{C0EA1CCF-6224-00E9-1092-23205DBDB5AF}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{7365086D-23B9-97E0-837D-C1877877105C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
