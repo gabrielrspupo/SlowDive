@@ -82,7 +82,6 @@ public class Player : MonoBehaviour {
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        Debug.Log("WallToRight: " + wallToRight + " WallToLeft: " + wallToLeft);
         if (transform.position.y <= fallBoundary)
         {
             health = 0;
@@ -116,6 +115,7 @@ public class Player : MonoBehaviour {
         else{
             Resetar();
             ControlarEntradas();
+            limitJump();
         }
     }
 
@@ -152,25 +152,9 @@ public class Player : MonoBehaviour {
     private void Movimentar(float h){
         if ((wallToLeft && h < 0) || (wallToRight && h > 0))
             return;
-            //h = 0;
         if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Atirar")){
-        //if (estaNoChao)
             rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
-                /*else {
-                    if(h > 0) { 
-                        if (!wallToLeft)
-                            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
-                    }
-                    else if(h < 0) { 
-                        if (!wallToLeft)
-                            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
-                    }
-                    //if ((!wallToLeft && h < 0) || (!wallToRight && h > 0))
-                    //   rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
-                }
-                */
-
-            }
+        }
         animator.SetFloat("velocidade", Mathf.Abs(h));
         if(rb2D.velocity.y == 0){
             //rb2D.gravityScale = 1.0f;
@@ -306,11 +290,13 @@ public class Player : MonoBehaviour {
             doubleJump = false;
         }
 
+    }
+    void limitJump() {
         if (rb2D.velocity.y < 0)
         {
             rb2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (rb2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (rb2D.velocity.y > 0 && !Input.GetKey("up"))
         {
             rb2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
