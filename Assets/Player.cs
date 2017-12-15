@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     private bool eLadoDireito;
 
     [SerializeField]
-    private float velocidade = 0;
+    public float velocidade = 0;
     private Animator animator;
     float horizontal;
     private bool acao;
@@ -110,7 +110,8 @@ public class Player : MonoBehaviour {
                 rb2D.gravityScale = 10;
             }
             //TODO : Colocar animacao de morte, mensagem e esperar um tempo
-            GameManager.KillPlayer(this);
+
+            StartCoroutine("Respawnar");
         }
         else{
             Resetar();
@@ -121,7 +122,10 @@ public class Player : MonoBehaviour {
             energy = maxEnergy;
         }
     }
-
+    IEnumerator Respawnar(){
+		yield return new WaitForSeconds(3.0f);
+		GameManager.KillPlayer(this);
+	}
     void FixedUpdate(){
         
         fillerHealth.fillAmount = health / maxHealth;
@@ -215,6 +219,9 @@ public class Player : MonoBehaviour {
                 sofrerDano = true;
                 Debug.Log("fooooooi2");
             }
+        }
+        if(collision.transform.name.Contains("Prisao")){
+            StartCoroutine("Respawnar");
         }
 
     }
@@ -329,5 +336,8 @@ public class Player : MonoBehaviour {
 
     public bool hasEnergy() {
         return energy > 0 ? true : false;
+    }
+    public void Travar(){
+        velocidade = 0;
     }
 }

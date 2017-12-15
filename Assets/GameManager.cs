@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeToRespawn);
         Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
+        transform.Find("TimeManager").GetComponent<TimeManager>().buscarPlayer();
     }
     public void setSpawnPoint(Transform point) {
         spawnPoint = point;

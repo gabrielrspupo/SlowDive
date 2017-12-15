@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DDB388A0-719A-F94B-CA4B-44C633B36DD2}</ProjectGuid>
+    <ProjectGuid>{17B86B31-2F71-D31B-24F0-1CFC10E0EAFA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Aaron.cs" />
      <Compile Include="Assets\ArmMovement.cs" />
      <Compile Include="Assets\BossControl.cs" />
      <Compile Include="Assets\BoxDropper.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\TurretControl.cs" />
      <Compile Include="Assets\caixa.cs" />
      <Compile Include="Assets\invisivel.cs" />
+     <Compile Include="Assets\mudarCena.cs" />
      <None Include="Assets\HUD\Bars\Credits.txt" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\_BloomAndFlares\MobileBlur.shader" />
@@ -178,7 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{E31EED31-773E-0517-627A-6B6572457CE4}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{4EF84813-D746-CF15-41E0-6D2AAE39656A}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

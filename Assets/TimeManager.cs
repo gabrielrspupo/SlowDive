@@ -40,5 +40,8 @@ public class TimeManager : MonoBehaviour {
 	public float localDeltaTime(){
 		return _time.localDeltaTime;
 	}
+	public void buscarPlayer(){
+		player = transform.Find("Carol_0(Clone)").GetComponent<Player>();
+	}
 
 }

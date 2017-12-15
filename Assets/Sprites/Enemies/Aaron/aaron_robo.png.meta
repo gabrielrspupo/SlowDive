@@ -1,9 +1,62 @@
 fileFormatVersion: 2
 guid: 175a1f5871d43434687a6387de8fabc9
-timeCreated: 1512247627
+timeCreated: 1513321078
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: aaron_robo_0
+    21300002: aaron_robo_1
+    21300004: aaron_robo_2
+    21300006: aaron_robo_3
+    21300008: aaron_robo_4
+    21300010: aaron_robo_5
+    21300012: aaron_robo_6
+    21300014: aaron_robo_7
+    21300016: aaron_robo_8
+    21300018: aaron_robo_9
+    21300020: aaron_robo_10
+    21300022: aaron_robo_11
+    21300024: aaron_robo_12
+    21300026: aaron_robo_13
+    21300028: aaron_robo_14
+    21300030: aaron_robo_15
+    21300032: aaron_robo_16
+    21300034: aaron_robo_17
+    21300036: aaron_robo_18
+    21300038: aaron_robo_19
+    21300040: aaron_robo_20
+    21300042: aaron_robo_21
+    21300044: aaron_robo_22
+    21300046: aaron_robo_23
+    21300048: aaron_robo_24
+    21300050: aaron_robo_25
+    21300052: aaron_robo_26
+    21300054: aaron_robo_27
+    21300056: aaron_robo_28
+    21300058: aaron_robo_29
+    21300060: aaron_robo_30
+    21300062: aaron_robo_31
+    21300064: aaron_robo_32
+    21300066: aaron_robo_33
+    21300068: aaron_robo_34
+    21300070: aaron_robo_35
+    21300072: aaron_robo_36
+    21300074: aaron_robo_37
+    21300076: aaron_robo_38
+    21300078: aaron_robo_39
+    21300080: aaron_robo_40
+    21300082: aaron_robo_41
+    21300084: aaron_robo_42
+    21300086: aaron_robo_43
+    21300088: aaron_robo_44
+    21300090: aaron_robo_45
+    21300092: aaron_robo_46
+    21300094: aaron_robo_47
+    21300096: aaron_robo_48
+    21300098: aaron_robo_49
+    21300100: aaron_robo_50
+    21300102: aaron_robo_51
+    21300104: aaron_robo_52
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,13 +87,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -58,9 +111,706 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: aaron_robo_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 350
+        width: 16
+        height: 45
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 350
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 350
+        width: 11
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 350
+        width: 9
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 350
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 350
+        width: 11
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 350
+        width: 8
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 350
+        width: 17
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 350
+        width: 18
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_9
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 350
+        width: 20
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 286
+        width: 18
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 286
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 286
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_13
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 286
+        width: 18
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 286
+        width: 18
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_15
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 286
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_16
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 286
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_17
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 286
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_18
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 288
+        width: 17
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_19
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 286
+        width: 17
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_20
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 222
+        width: 18
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_21
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 222
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_22
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 222
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_23
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 222
+        width: 28
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_24
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 222
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_25
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 222
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_26
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 222
+        width: 24
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_27
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 222
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_28
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 222
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_29
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 222
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_30
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 158
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_31
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 158
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_32
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 158
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_33
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 158
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_34
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 158
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_35
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 158
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 158
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_37
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 158
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_38
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 158
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_39
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 158
+        width: 19
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_40
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 94
+        width: 20
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_41
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 94
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_42
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 94
+        width: 20
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_43
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 94
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_44
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 94
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_45
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 94
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_46
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 94
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_47
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 94
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_48
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 94
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_49
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 94
+        width: 19
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_50
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 30
+        width: 17
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_51
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 32
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aaron_robo_52
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 30
+        width: 45
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
