@@ -87,7 +87,7 @@
     <Compile Include="Assets\ArmMovement.cs" />
     <Compile Include="Assets\BossControl.cs" />
     <Compile Include="Assets\BoxDropper.cs" />
-    <Compile Include="Assets\CountTime.cs" />
+    <Compile Include="Assets\Checkpoint.cs" />
     <Compile Include="Assets\CurvedMovement.cs" />
     <Compile Include="Assets\EnemyAnimControl.cs" />
     <Compile Include="Assets\EnemyControl.cs" />
@@ -97,6 +97,8 @@
     <Compile Include="Assets\FirePattern.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Gravity.cs" />
+    <Compile Include="Assets\HUD\Scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\Inimigos\Scripts\BulletControl.cs" />
     <Compile Include="Assets\MoveBullet.cs" />
     <Compile Include="Assets\MoveTimedPlayer.cs" />
     <Compile Include="Assets\MovingPlatform.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\PlayerAnimationController.cs" />
     <Compile Include="Assets\ProgressBar.cs" />
     <Compile Include="Assets\RotateToPlayerPos.cs" />
+    <Compile Include="Assets\Scripts\Bala.cs" />
     <Compile Include="Assets\StandOnPlatform.cs" />
     <Compile Include="Assets\TimeBehaviour.cs" />
     <Compile Include="Assets\TimedShoot.cs" />
@@ -113,6 +116,8 @@
     <Compile Include="Assets\TurretControl.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\HUD\Bars\Credits.txt" />
+    <None Include="Assets\HUD\vec\Credits.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\CameraMotionBlur.shader" />
