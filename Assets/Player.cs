@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
     private bool acao;
 	public float jumpImpulse = 10;
 	private int jumpLimit = 1;
+	public static bool paused = false;
    
     public float fallBoundary = -15;
     [SerializeField]
@@ -109,15 +110,22 @@ public class Player : MonoBehaviour {
         horizontal = Input.GetAxis("Horizontal");
         fillerHealth.fillAmount = health / maxHealth;
         fillerEnergy.fillAmount = energy / maxEnergy;
-        if(!morreu){
-            LevouDano();
-            Movimentar(horizontal);
-            MudarDirecao(horizontal);
-            consumeEnergy();
-            EstaNoChao();
-            ControlarLayers();
-            Acao();
-        }
+
+		if (Input.GetKeyDown (KeyCode.Escape))
+			paused = !paused;
+
+		if (!morreu && !paused) {
+			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+			LevouDano ();
+			Movimentar (horizontal);
+			MudarDirecao (horizontal);
+			consumeEnergy ();
+			EstaNoChao ();
+			ControlarLayers ();
+			Acao ();
+		} else if (paused) {
+			rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+		}
     }
     private void LevouDano(){
         if(sofrerDano){

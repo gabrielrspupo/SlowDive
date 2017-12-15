@@ -21,12 +21,13 @@ public class TimedShoot : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        timer -= localTime.localDeltaTime();
-        if (timer <= 0f)
-        {
-            Fire();
-            timer = timeToFire;
-        }
+		if (!Player.paused) {
+			timer -= localTime.localDeltaTime ();
+			if (timer <= 0f) {
+				Fire ();
+				timer = timeToFire;
+			}
+		}
     }
     void Fire() {
         GameObject newBullet = Instantiate(bullet, PointToShoot.position, Quaternion.identity);
