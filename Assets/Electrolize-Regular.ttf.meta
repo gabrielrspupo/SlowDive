@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4c2cf3c056d1c6c43962a23420d71c81
+timeCreated: 1513326246
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Electrolize
+  fontNames:
+  - Electrolize
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

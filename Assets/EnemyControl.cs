@@ -24,6 +24,7 @@ public class EnemyControl : MonoBehaviour
     private float health;
     private Image fillerHealth;
     private GameObject healthBar;
+	private AudioSource morreuInimigoSom;
 
 
     void Start()
@@ -31,6 +32,7 @@ public class EnemyControl : MonoBehaviour
         localTime = GameObject.Find("TimeManager").GetComponent<TimeManager>();
         rb = GetComponent<Rigidbody2D>();
         gravity = GetComponent<Gravity>();
+		morreuInimigoSom = gameObject.AddComponent<AudioSource> ();
         if (localTime == null)
             Debug.Log("Nao existe um TimeManager");
         if (gravity == null)
@@ -48,7 +50,12 @@ public class EnemyControl : MonoBehaviour
     void FixedUpdate()
     {
         //if(gravity.isGrounded)
-        movePlatform();
+		if (Player.paused) {
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		} else {
+			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+			movePlatform ();
+		}
 
         fillerHealth.fillAmount = health / maxHealth;
     }
@@ -95,7 +102,9 @@ public class EnemyControl : MonoBehaviour
         }
     }
     private void hasLife() {
-        if (health <= 0)
-            Destroy(transform.parent.gameObject);
+		if (health <= 0) {
+			Destroy (transform.parent.gameObject);
+			morreuInimigoSom.PlayOneShot ((AudioClip)Resources.Load ("Morte-enemy"));
+		}
     }
 }

@@ -25,7 +25,12 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-        movePlatform();
+		if (Player.paused) {
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
+		} else {
+			rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+			movePlatform ();
+		}
     }
     void movePlatform() {        
 		Vector2 newPosition = new Vector2(transform.position.x + speed * localTime.localDeltaTime(), transform.position.y + speedy * localTime.localDeltaTime());

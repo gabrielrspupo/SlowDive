@@ -6,8 +6,14 @@ public class TimeManager : MonoBehaviour {
 	public float slowdownLength = 2f;
 	private TimeBehaviour _time;
     public Player player;
+	private AudioSource slowdiveSom;
+	private bool tocou = false;
     //public ProgressBar progressBar;
     //public float slowdownLimitSeconds = 10; 
+
+	void Start() {
+		slowdiveSom = gameObject.AddComponent<AudioSource> ();
+	}
 
 	void Awake(){
 		_time = GetComponent<TimeBehaviour> ();
@@ -22,12 +28,18 @@ public class TimeManager : MonoBehaviour {
         
             if (Input.GetKey(KeyCode.Z))
             {
-                if (player.hasEnergy())
-                    _time.localTimeScale = slowdownFactor;
+			if (player.hasEnergy ()) {
+				_time.localTimeScale = slowdownFactor;
+				if (!slowdiveSom.isPlaying && !tocou) {
+					slowdiveSom.PlayOneShot ((AudioClip)Resources.Load ("SlowDive"), 1);
+					tocou = true;
+				}
+			}
             }
             if (Input.GetKeyUp(KeyCode.Z) || !player.hasEnergy())
             {
                 _time.localTimeScale = 1f;
+				tocou = false;
             }
         
 	}

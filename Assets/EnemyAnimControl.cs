@@ -17,9 +17,13 @@ public class EnemyAnimControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (control.speed == 0)
-            anim.SetBool("isWalking", false);
-        else
-            anim.SetBool("isWalking", true);
-    }
+		if (control.speed == 0)
+			anim.SetBool ("isWalking", false);
+		else if (Player.paused)
+			anim.speed = 0;
+		else {
+			anim.SetBool ("isWalking", true);
+			anim.speed = 1;
+		}
+	}
 }

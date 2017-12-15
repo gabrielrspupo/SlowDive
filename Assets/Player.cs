@@ -49,6 +49,9 @@ public class Player : MonoBehaviour {
     private int tipoDano = 0;
     private bool morreu = false;
     private BoxCollider2D boxCol;
+	public static bool paused = false;
+	private AudioSource morreuSom;
+	private bool tocou = false;
 
     private bool doubleJump = false;
     public float jumpVelocity = 5f;
@@ -63,6 +66,7 @@ public class Player : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCol = GetComponent<BoxCollider2D>();
+		morreuSom = gameObject.AddComponent<AudioSource> ();
         eLadoDireito = transform.localScale.x>0;
 
         fillerHealth = transform.Find("Health Canvas").GetChild(0).GetChild(0).GetComponent<Image>();
@@ -112,6 +116,7 @@ public class Player : MonoBehaviour {
             //TODO : Colocar animacao de morte, mensagem e esperar um tempo
 
             StartCoroutine("Respawnar");
+
         }
         else{
             Resetar();
@@ -125,21 +130,40 @@ public class Player : MonoBehaviour {
     IEnumerator Respawnar(){
 		yield return new WaitForSeconds(3.0f);
 		GameManager.KillPlayer(this);
+		tocou = false;
 	}
+
+	private void TocarSomMorte() {
+		if (!morreuSom.isPlaying && !tocou) {
+			morreuSom.PlayOneShot ((AudioClip)Resources.Load ("Morte"));
+			tocou = true;
+		}
+	}
+
     void FixedUpdate(){
         
         fillerHealth.fillAmount = health / maxHealth;
         fillerEnergy.fillAmount = energy / maxEnergy;
-        if(!morreu){
-            LevouDano();
-            Movimentar(horizontal);
-            MudarDirecao(horizontal);
-            consumeEnergy();
-            EstaNoChao();
-            ControlarLayers();
-            Acao();
-        }
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			paused = !paused;
+		}
+
+		if (!morreu && !paused) {
+			rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+			LevouDano ();
+			Movimentar (horizontal);
+			MudarDirecao (horizontal);
+			consumeEnergy ();
+			EstaNoChao ();
+			ControlarLayers ();
+			Acao ();
+		} else if (paused) {
+			rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+		} else 
+			TocarSomMorte();
     }
+		
     private void LevouDano(){
         if(sofrerDano){
             animator.SetBool("dano", true);
