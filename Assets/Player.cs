@@ -12,8 +12,6 @@ public class Player : MonoBehaviour {
     private Animator animator;
     float horizontal;
     private bool acao;
-	public float jumpImpulse = 10;
-	private int jumpLimit = 1;
    
     public float fallBoundary = -15;
     [SerializeField]
@@ -41,14 +39,25 @@ public class Player : MonoBehaviour {
     private float health;
     private Image fillerHealth;
     private GameObject healthBar;    
-
+    
     public float energy;
     private Image fillerEnergy;
-    private GameObject energyBar;  
+    private GameObject energyBar;
+    public float slowdownLimitSeconds = 10;
+
     private bool sofrerDano = false; 
     private int tipoDano = 0;
     private bool morreu = false;
     private BoxCollider2D boxCol;
+
+    private bool doubleJump = false;
+    public float jumpVelocity = 5f;
+    public float doubleJumpVelocity = 4f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
+    private bool wallToLeft = false;
+    private bool wallToRight = false;
 
     void Start(){
         rb2D = GetComponent<Rigidbody2D>();
@@ -62,14 +71,17 @@ public class Player : MonoBehaviour {
         fillerHealth.fillAmount = health / maxHealth;
 
         fillerEnergy = transform.Find("Energy Canvas").GetChild(0).GetChild(0).GetComponent<Image>();
-        energyBar = transform.Find("Energy Canvas").gameObject;        
+        energyBar = transform.Find("Energy Canvas").gameObject;
+        maxEnergy = slowdownLimitSeconds;
         energy = maxEnergy;
         fillerEnergy.fillAmount = energy / maxEnergy;
         animator.SetBool("morreu", false);
+        
     }    
 
     void Update()
     {
+        horizontal = Input.GetAxis("Horizontal");
         if (transform.position.y <= fallBoundary)
         {
             health = 0;
@@ -77,7 +89,6 @@ public class Player : MonoBehaviour {
         /*teste*/
         if (health <= 0){
             EstaNoChao();
-            //GameObject.Destroy(gameObject);
             animator.SetLayerWeight(0,0);
             animator.SetLayerWeight(1,0);
             animator.SetLayerWeight(2,0);
@@ -98,15 +109,21 @@ public class Player : MonoBehaviour {
             else{
                 rb2D.gravityScale = 10;
             }
-        }else{
+            //TODO : Colocar animacao de morte, mensagem e esperar um tempo
+            GameManager.KillPlayer(this);
+        }
+        else{
             Resetar();
             ControlarEntradas();
+            limitJump();
         }
-        
+        if(energy>maxEnergy){
+            energy = maxEnergy;
+        }
     }
 
     void FixedUpdate(){
-        horizontal = Input.GetAxis("Horizontal");
+        
         fillerHealth.fillAmount = health / maxHealth;
         fillerEnergy.fillAmount = energy / maxEnergy;
         if(!morreu){
@@ -121,7 +138,6 @@ public class Player : MonoBehaviour {
     }
     private void LevouDano(){
         if(sofrerDano){
-            //rb2D.AddForce(new Vector2(-jumpImpulse, 0));
             animator.SetBool("dano", true);
             animator.SetLayerWeight(2,1);
             if(tipoDano==1)
@@ -137,13 +153,14 @@ public class Player : MonoBehaviour {
         }
     }
     private void Movimentar(float h){
-        if(!animator.GetCurrentAnimatorStateInfo(0).IsTag("Atirar")){
-            rb2D.velocity = new Vector2(h*velocidade, rb2D.velocity.y);
+        if ((wallToLeft && h < 0) || (wallToRight && h > 0))
+            return;
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Atirar")){
+            rb2D.velocity = new Vector2(h * velocidade, rb2D.velocity.y);
         }
         animator.SetFloat("velocidade", Mathf.Abs(h));
         if(rb2D.velocity.y == 0){
-            rb2D.velocity = new Vector2(h*velocidade, rb2D.velocity.y);
-            Debug.Log ("bugou");
+            //rb2D.gravityScale = 1.0f;
         }
     }
     private void MudarDirecao(float horizontal){
@@ -190,20 +207,23 @@ public class Player : MonoBehaviour {
     }
 
     void OnCollisionEnter2D (Collision2D collision) {
-        if (collision.transform.tag.Contains("Ground"))
-		    jumpLimit = 1; 
-        if (collision.transform.tag.Contains("Enemy"))//para mais inimigos, adicionar condicoes para diferencia-los
-            if (health > 0){
+        if (collision.transform.tag.Contains("Enemy"))
+        {//para mais inimigos, adicionar condicoes para diferencia-los
+            if (health > 0)
+            {
                 tipoDano = 1;
                 sofrerDano = true;
-                Debug.Log ("fooooooi2");
-            }      
+                Debug.Log("fooooooi2");
+            }
+        }
+
     }
 
-	void OnCollisionExit2D (Collision2D collision) {
-        if (collision.transform.tag.Contains("Ground"))
-            jumpLimit = 0;
-	}
+    
+        void OnCollisionExit2D (Collision2D collision) {
+        wallToLeft = false;
+        wallToRight = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.transform.name.Contains("Bullet") && collision.transform.tag.Contains("Enemy"))
             if (health > 0){
@@ -215,13 +235,27 @@ public class Player : MonoBehaviour {
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision) {            
-        if (collision.transform.tag.Contains("Enemy"))//para mais inimigos, adicionar condicoes para diferencia-los
-            if (health > 0){
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (collision.transform.tag.Contains("Enemy")){//para mais inimigos, adicionar condicoes para diferencia-los
+            if (health > 0) {
                 sofrerDano = true;
                 tipoDano = 1;
-                Debug.Log ("fooooooi2");
+                Debug.Log("fooooooi2");
             }
+        }
+        Collider2D collider = collision.collider;
+        if (collider.tag == "Ground")
+        {
+            if (!estaNoChao)
+            {
+                Vector3 contactPoint = collision.contacts[0].point;
+                Vector3 center = collider.bounds.center;
+
+                wallToLeft = contactPoint.x > center.x;
+                wallToRight = contactPoint.x < center.x;
+            }
+
+        }
     }
 
     private void EstaNoChao(){
@@ -230,20 +264,44 @@ public class Player : MonoBehaviour {
         pontoPosicao.y += transform.position.y;
         estaNoChao = Physics2D.OverlapCircle(pontoPosicao, raio, plataforma);
         Cair();
-
     }
+
     void OnDrawGizmos(){
         Gizmos.color = debugCorColisao;
         var pontoPosicao = pontoColisaoPiso;
         pontoPosicao.x += transform.position.x;
         pontoPosicao.y += transform.position.y;
         estaNoChao = Physics2D.OverlapCircle(pontoPosicao, raio, plataforma);
+        /*if (top && estaNoChao1)
+            estaNoChao = true;
+        else
+            estaNoChao = false;*/
         Gizmos.DrawWireSphere(pontoPosicao, raio);
     }
     void Pular(){
-        rb2D.gravityScale = 1.5f;
-        if(estaNoChao && rb2D.velocity.y <= 0){
-            rb2D.AddForce(new Vector2(0, jumpImpulse));
+        if (estaNoChao)
+        {
+            //GetComponent<Rigidbody2D>().velocity = Vector2.up * jumpVelocity;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal, jumpVelocity);
+            doubleJump = true;
+            estaNoChao = false;
+        }
+        else if (doubleJump)
+        {
+            //GetComponent<Rigidbody2D>().velocity = Vector2.up * doubleJumpVelocity;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(horizontal, jumpVelocity);
+            doubleJump = false;
+        }
+
+    }
+    void limitJump() {
+        if (rb2D.velocity.y < 0)
+        {
+            rb2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb2D.velocity.y > 0 && !Input.GetKey("up"))
+        {
+            rb2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
     private void Cair(){
@@ -266,7 +324,10 @@ public class Player : MonoBehaviour {
 
     private void consumeEnergy() {
         if (Input.GetKey(KeyCode.Z) && energy > 0)//definir (botao de parar o tempo)
-            energy -= energyConsumeRate;
+            energy -= Time.deltaTime;
     }
 
+    public bool hasEnergy() {
+        return energy > 0 ? true : false;
+    }
 }

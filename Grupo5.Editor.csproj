@@ -135,6 +135,8 @@
     <Compile Include="Assets\Editor\InputAxisScrollbarCI.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\HUD\Bars\Credits.txt" />
+    <None Include="Assets\HUD\vec\Credits.txt" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\BlendModesOverlay.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\BlurEffectConeTaps.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects (Pro Only)\Shaders\CameraMotionBlur.shader" />

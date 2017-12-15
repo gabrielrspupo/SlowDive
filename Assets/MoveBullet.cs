@@ -42,11 +42,15 @@ public class MoveBullet : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-            Destroy(gameObject);
+        //if (collision.gameObject.CompareTag("Player"))
+        
             
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Ground"))
+            Destroy(gameObject);
+    }
     void OnBecameInvisible()
     {
         Destroy(gameObject);
